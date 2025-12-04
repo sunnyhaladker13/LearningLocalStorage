@@ -1,0 +1,67 @@
+okay so local storage.
+
+1. Make basic form.
+2. Make empty object
+3. Store in empty object.
+4. autosave form info
+5. close tab & open tab to retrieve autosaved and fill.
+
+
+basic form
+1. First Name
+2. Last Name
+3. Phone Number
+4. Email Address
+5. Home Address
+6. Total budget
+
+
+so i will fill till step 3, and close tab or refresh.
+When refreshed i should prefill it all.
+
+What does that mean?
+Only missing link is converting object to value of input.
+
+So workflow
+check localstorage for inputs
+
+access all fields.
+define object
+create autosave function
+    eventlistener input for all fields
+    as they input, update object
+    as object update, save to localsorage
+    put timer for like 5mins in localstorage
+
+
+how do i create eventlistener for all fields.
+
+/// Original plan
+const autosave = () => {
+
+    const firstNameInput = firstName.input.addeventListener("input", autosave);
+    const lastNameInput = lastName.input.addeventListener("input", autosave);
+    const phoneNumberInput = phoneNumber.input.addeventListener("input", autosave);
+    const emailInput = email.input.addeventListener("input", autosave);
+    const addressInput = home.input.addeventListener("input", autosave);
+    const totalBudgetInput = totalBudget.input.addeventListener("input", autosave);
+
+    formInput = [
+        {firstName: 'firstNameInput'},
+        {lastName: 'lastNameInput'},
+        {phoneNumber: 'phoneNumberInput'},
+        {emailAddress: 'emailInput'},
+        {homeAddress: 'addressInput'},
+        {totalBudget: 'totalBudgetInput'},
+    ]
+    localstorage.setItem(
+        'userData', JSON.stringify(formInput))
+    
+}
+autosave();
+console.log(autosave);
+
+// main issues
+1. adding listeners in function could cause issues, so add globally
+2. just syntax issues
+3. not clarity on retrieving it and autofilling
